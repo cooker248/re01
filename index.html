@@ -1,253 +1,279 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./icon/icon_192x192.png" />
+    <meta
+      name="description"
+      content="Author: cooker, pic: net, This is a website I make to learn web."
+    />
     <title>flex 学习</title>
     <style type="text/css">
-        body {
-            margin: 0;
-            height: 100vh;
-        }
+      body {
+        margin: 0;
+        height: 100vh;
+      }
 
-        header {
-            position: relative;
-            top: 0;
-            left: 0;
-        }
+      header {
+        position: relative;
+        top: 0;
+        left: 0;
+      }
 
-        .global-header {
-            display: flex;
-            align-items: center;
-            max-width: 1000px;
-            margin: auto;
-            height: 60px;
-            padding: 0 17px;
-        }
+      .global-header {
+        display: flex;
+        align-items: center;
+        max-width: 1000px;
+        margin: auto;
+        height: 60px;
+        padding: 0 17px;
+      }
 
-        .logo {
-            margin-right: 19px;
-        }
+      .logo {
+        margin-right: 19px;
+      }
 
-        .nav {
-            display: flex;
-            overflow: hidden;
-        }
+      .nav {
+        display: flex;
+        overflow: hidden;
+      }
 
-        .nav a {
-            color: #000;
-            text-align: center;
-            line-height: 22px;
-            padding: 10px;
-            margin: 0px 15px;
-            text-decoration: none;
-            font-size: 16px;
-        }
+      .nav a {
+        color: #000;
+        text-align: center;
+        line-height: 22px;
+        padding: 10px;
+        margin: 0px 15px;
+        text-decoration: none;
+        font-size: 16px;
+      }
 
-        .nav a:hover {
-            color: gray;
-        }
+      .nav a:hover {
+        color: gray;
+      }
 
-        .search-part {
-            flex: 1 1;
-            justify-content: flex-end;
-            padding: 10px 0px;
-            align-items: center;
-        }
+      .search-part {
+        flex: 1 1;
+        justify-content: flex-end;
+        padding: 10px 0px;
+        align-items: center;
+      }
 
-        .search-wrap {
-            display: flex;
-            flex: 1 1;
-            border: 1px solid #e5e5e5;
-            border-radius: 3px;
-            margin-left: 19px;
-        }
+      .search-wrap {
+        display: flex;
+        flex: 1 1;
+        border: 1px solid #e5e5e5;
+        border-radius: 3px;
+        margin-left: 19px;
+      }
 
-        .search-wrap input {
-            flex: 1 1;
-            border-width: 0;
-            padding: 8px;
-        }
+      .search-wrap input {
+        flex: 1 1;
+        border-width: 0;
+        padding: 8px;
+      }
 
-        .search-wrap a {
-            border-left: 1px solid #e5e5e5;
-            line-height: 22px;
-        }
+      .search-wrap a {
+        border-left: 1px solid #e5e5e5;
+        line-height: 22px;
+      }
 
-        .global-header:after {
-            content: "";
-            display: block;
-            height: 1px;
-            background: #e5e5e5;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
+      .global-header:after {
+        content: "";
+        display: block;
+        height: 1px;
+        background: #e5e5e5;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
 
-        main {
-            display: flex;
-            flex-direction: column;
-            max-width: 1000px;
-            padding: 10px 17px;
-            margin: auto;
-        }
+      main {
+        display: flex;
+        flex-direction: column;
+        max-width: 1000px;
+        padding: 10px 17px;
+        margin: auto;
+      }
 
+      .section-header {
+        display: flex;
+        margin: 18px auto;
+        align-items: center;
+      }
 
-        .section-header {
-            display: flex;
-            margin: 18px auto;
-            align-items: center;
-        }
+      .title {
+        flex: 1 1;
+        font-size: 24px;
+        line-height: 33px;
+      }
 
-        .title {
-            flex: 1 1;
-            font-size: 24px;
-            line-height: 33px;
-        }
+      .more {
+        font-size: 16px;
+        line-height: 22px;
+      }
 
-        .more {
-            font-size: 16px;
-            line-height: 22px;
-        }
+      .card-wrap {
+        display: flex;
+        margin: -10px -10px;
+      }
 
-        .card-wrap {
-            display: flex;
-            margin: -10px -10px;
+      .card {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 0 10px;
+        margin: 0 0 20px 0;
+        /* border: 1px solid saddlebrown; */
+      }
 
-        }
+      .article-title {
+        margin: 8px 0 0 0;
+        font-size: 14px;
+        line-height: 20px;
+      }
 
-        .card {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding: 0 10px;
-            margin: 0 0 20px 0;
-            /* border: 1px solid saddlebrown; */
-        }
-
-        .article-title {
-            margin: 8px 0 0 0;
-            font-size: 14px;
-            line-height: 20px;
-        }
-
-        .footer {
-            background-color: aliceblue;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-        }
+      .footer {
+        background-color: aliceblue;
+        text-align: center;
+        padding: 20px;
+        font-size: 12px;
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 2/1;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 头部 -->
     <header>
-        <div class="global-header">
-            <div class="logo">
-                <img src="./resources/portrait.png" alt="logo" height="60px" />
-            </div>
-            <div class="nav">
-                <a href="./">选项1</a>
-                <a href="./">选项1</a>
-                <a href="./">选项1</a>
-                <a href="./">选项1</a>
-                <a href="./">选项1</a>
-                <a href="./">选项1</a>
-            </div>
-            <div class="search-part">
-                <div class="search-wrap">
-                    <input type="search" name="搜索栏" placeholder="搜索" />
-                    <a href="./"><img src="./resources/search.png" alt="搜索" width="38px" /></a>
-                </div>
-            </div>
+      <div class="global-header">
+        <div class="logo">
+          <img
+            src="./resources/portrait.png"
+            alt="logo"
+            height="60px"
+            style="aspect-ratio: 1/1"
+          />
         </div>
+        <div class="nav">
+          <a href="./">选项1</a>
+          <a href="./">选项1</a>
+          <a href="./">选项1</a>
+          <a href="./">选项1</a>
+          <a href="./">选项1</a>
+          <a href="./">选项1</a>
+        </div>
+        <div class="search-part">
+          <div class="search-wrap">
+            <input type="search" name="搜索栏" placeholder="搜索" />
+            <a href="./"
+              ><img
+                style="aspect-ratio: 1/1"
+                src="./resources/search.png"
+                alt="搜索"
+                width="38px"
+            /></a>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- 正文 -->
     <main>
-        <!-- banner -->
-        <div class="banner">
-            <img src="./resources/banner.jpg" alt="banner" width="100%" height="200px" />
+      <!-- banner -->
+      <div class="banner">
+        <img
+          src="./resources/banner.webp"
+          alt="banner"
+          width="100%"
+          height="200px"
+        />
+      </div>
+      <!-- 内容 -->
+      <div class="content-wrap">
+        <!-- 主题 -->
+        <div class="section-header">
+          <div class="title">主题1</div>
+          <div class="more">查看更多</div>
         </div>
-        <!-- 内容 -->
-        <div class="content-wrap">
-            <!-- 主题 -->
-            <div class="section-header">
-                <div class="title">主题1</div>
-                <div class="more">查看更多</div>
-            </div>
-            <div class="card-wrap">
-                <div class="card">
-                    <img src="./resources/card1.jpg" alt="图1" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card1.jpg" alt="图1" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card1.jpg" alt="图1" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-            </div>
-
+        <div class="card-wrap">
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图1" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图1" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图1" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
         </div>
-        <div class="content-wrap">
-            <!-- 主题 -->
-            <div class="section-header">
-                <div class="title">主题2</div>
-                <div class="more">查看更多</div>
-            </div>
-            <div class="card-wrap">
-                <div class="card">
-                    <img src="./resources/card2.jpg" alt="图2" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card2.jpg" alt="图2" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card2.jpg" alt="图2" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-            </div>
-
+      </div>
+      <div class="content-wrap">
+        <!-- 主题 -->
+        <div class="section-header">
+          <div class="title">主题2</div>
+          <div class="more">查看更多</div>
         </div>
-        <div class="content-wrap">
-            <!-- 主题 -->
-            <div class="section-header">
-                <div class="title">题目3</div>
-                <div class="more">查看更多</div>
-            </div>
-            <div class="card-wrap">
-                <div class="card">
-                    <img src="./resources/card3.jpg" alt="图3" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card3.jpg" alt="图3" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-                <div class="card">
-                    <img src="./resources/card3.jpg" alt="图3" width="100%">
-                    <div class="article-title">文章题目</div>
-                </div>
-            </div>
-
+        <div class="card-wrap">
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图2" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图2" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图2" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
         </div>
+      </div>
+      <div class="content-wrap">
+        <div class="section-header">
+          <div class="title">题目3</div>
+          <div class="more">查看更多</div>
+        </div>
+        <div class="card-wrap">
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图3" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图3" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+          <div class="card">
+            <img src="./resources/card1.webp" alt="图3" width="100%" />
+            <div class="article-title">文章题目</div>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- 页脚 -->
     <footer>
-        <div class="footer">
-            <p>Copyright © 2022 我的网站</p>
-            <a href="hhtps://baidu.com/">友情链接</a>
-            <p>ice is a pig 🐖</p>
-        </div>
+      <div class="footer">
+        <p>Copyright © 2022 我的网站</p>
+        <a href="hhtps://baidu.com/">友情链接</a>
+        <p>ice is a pig 🐖</p>
+      </div>
     </footer>
-</body>
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("sw.js");
+        });
+      }
+    </script>
+  </body>
 </html>
